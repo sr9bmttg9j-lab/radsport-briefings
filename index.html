@@ -30,12 +30,19 @@
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
 
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
       .page {
-        width: min(760px, 100%);
+        width: min(860px, 100%);
         margin: 0 auto;
       }
 
-      .mail {
+      .shell {
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 10px;
@@ -44,9 +51,17 @@
       }
 
       .head {
-        padding: 26px 28px 24px;
+        padding: 24px 28px;
         border-bottom: 1px solid var(--line);
         background: linear-gradient(90deg, #ffffff 0%, #fbfcfd 55%, #fff4cf 100%);
+      }
+
+      .topline {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: center;
+        margin-bottom: 12px;
       }
 
       .kicker {
@@ -57,26 +72,50 @@
         text-transform: uppercase;
       }
 
-      h1,
-      h2,
-      p {
-        margin: 0;
+      .pager {
+        display: flex;
+        gap: 8px;
+      }
+
+      .pager button {
+        width: 38px;
+        height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+        color: var(--ink);
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .pager button:disabled {
+        color: #b3bdc4;
+        cursor: not-allowed;
       }
 
       h1 {
-        margin-top: 7px;
-        max-width: 650px;
+        max-width: 720px;
         font-size: 31px;
         line-height: 1.12;
         letter-spacing: 0;
       }
 
       .intro {
-        margin-top: 11px;
-        max-width: 660px;
+        margin-top: 10px;
+        max-width: 720px;
         color: var(--muted);
         font-size: 15px;
         line-height: 1.55;
+      }
+
+      .briefing {
+        display: none;
+      }
+
+      .briefing.active {
+        display: block;
       }
 
       .body {
@@ -110,7 +149,7 @@
       }
 
       .section {
-        margin-top: 18px;
+        margin-top: 22px;
         padding-left: 15px;
         border-left: 5px solid var(--blue);
       }
@@ -127,16 +166,87 @@
         border-color: var(--accent);
       }
 
+      .section p {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.58;
+      }
+
       h2 {
-        font-size: 18px;
+        font-size: 19px;
         letter-spacing: 0;
       }
 
-      .section p {
-        margin-top: 5px;
+      .gc-table-wrap {
+        margin-top: 12px;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      table {
+        width: 100%;
+        min-width: 720px;
+        border-collapse: collapse;
+        background: #ffffff;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 10px 11px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
         color: var(--muted);
+        background: #fbfcfd;
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .rank {
+        width: 44px;
+        color: var(--muted);
+        font-weight: 800;
+      }
+
+      .time {
+        white-space: nowrap;
+        font-weight: 800;
+      }
+
+      .profile-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .profile-item {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .profile-item span {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .profile-item strong {
         font-size: 15px;
-        line-height: 1.56;
       }
 
       .watch {
@@ -170,6 +280,17 @@
         font-size: 15px;
       }
 
+      .source-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .source-links a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+
       .footer {
         margin-top: 14px;
         color: var(--muted);
@@ -177,18 +298,33 @@
         text-align: center;
       }
 
-      @media (max-width: 620px) {
+      @media (max-width: 720px) {
         body {
           padding: 0;
         }
 
-        .mail {
+        .shell {
           border-radius: 0;
           border-left: 0;
           border-right: 0;
         }
 
-        .cards {
+        .head,
+        .body {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        .topline {
+          align-items: flex-start;
+        }
+
+        h1 {
+          font-size: 27px;
+        }
+
+        .cards,
+        .profile-grid {
           grid-template-columns: 1fr;
         }
 
@@ -200,61 +336,185 @@
   </head>
   <body>
     <div class="page">
-      <article class="mail">
-        <header class="head">
-          <div class="kicker">Giro-Morgenbriefing</div>
-          <h1>Gestern Giro-Chaos in Potenza, heute Sprinterfalle in Neapel.</h1>
-          <p class="intro">Stand: Donnerstag, 14. Mai 2026, vor dem finalen Ergebnis der Etappe 6. Diese öffentliche Vorschau enthält keine private E-Mail-Adresse und keine privaten Automationsdaten.</p>
-        </header>
-
-        <main class="body">
-          <div class="cards">
-            <div class="card">
-              <span>Etappensieger gestern</span>
-              <strong>Igor Arrieta</strong>
+      <div class="shell">
+        <article class="briefing active" data-day="14. Mai">
+          <header class="head">
+            <div class="topline">
+              <div class="kicker">Giro-Morgenbriefing · 14. Mai 2026 · 08:00</div>
+              <div class="pager" aria-label="Tagesnavigation">
+                <button type="button" data-dir="-1" aria-label="Vorheriges Briefing">‹</button>
+                <button type="button" data-dir="1" aria-label="Nächstes Briefing">›</button>
+              </div>
             </div>
-            <div class="card">
-              <span>Maglia Rosa</span>
-              <strong>Afonso Eul&aacute;lio</strong>
+            <h1>Arrieta gewinnt den wildesten Giro-Tag, Eulálio fährt in Rosa.</h1>
+            <p class="intro">Stand morgens vor Etappe 6. Öffentliche Webversion ohne private E-Mail-Adresse oder Automationsdaten.</p>
+          </header>
+
+          <main class="body">
+            <div class="cards">
+              <div class="card">
+                <span>Etappensieger gestern</span>
+                <strong>Igor Arrieta</strong>
+              </div>
+              <div class="card">
+                <span>Maglia Rosa</span>
+                <strong>Afonso Eulálio</strong>
+              </div>
+              <div class="card">
+                <span>Heute</span>
+                <strong>Paestum - Neapel</strong>
+              </div>
             </div>
-            <div class="card">
-              <span>Heute</span>
-              <strong>Paestum - Neapel</strong>
+
+            <section class="section">
+              <h2>Was gestern passiert ist</h2>
+              <p>Etappe 5 von Praia a Mare nach Potenza war der erste richtig unruhige Giro-Tag in Italien: Regen, eine große Flucht, mehrere Angriffe am Montagna Grande di Viggiano und ein Finale, das kaum sauberer hätte eskalieren können. Igor Arrieta und Afonso Eulálio setzten sich am härtesten Anstieg ab, stürzten später beide, und Arrieta nahm kurz vor Schluss sogar eine falsche Linie. Trotzdem kam er auf dem leicht ansteigenden Zielstrich wieder an Eulálio vorbei und gewann die Etappe.</p>
+              <p>Für Eulálio war es sportlich trotzdem ein Riesentag: Er verpasste zwar den Sieg, übernahm aber Rosa. Giulio Ciccone verlor das Maglia Rosa nach nur einem Tag, weil die Favoritengruppe mehr als sieben Minuten hinter der Spitzengruppe ins Ziel kam.</p>
+            </section>
+
+            <section class="section yellow">
+              <h2>Gesamtwertung nach Etappe 5</h2>
+              <p>Die Top 10 ist durch die Flucht komplett durcheinandergeraten. Eulálio hat jetzt einen echten Zeitpuffer, aber die großen GC-Favoriten liegen noch nah beieinander hinter Platz 10. Vor Blockhaus ist die Kernfrage: Lassen die Favoritenteams Bahrain und UAE noch einen Tag in Ruhe, oder beginnt die Korrektur schon morgen in den Bergen?</p>
+              <div class="gc-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Rang</th>
+                      <th>Fahrer</th>
+                      <th>Nation</th>
+                      <th>Team</th>
+                      <th>Rückstand</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="rank">1</td><td>Afonso Eulálio</td><td>Portugal</td><td>Bahrain Victorious</td><td class="time">21:27:43</td></tr>
+                    <tr><td class="rank">2</td><td>Igor Arrieta</td><td>Spanien</td><td>UAE Team Emirates-XRG</td><td class="time">+2:51</td></tr>
+                    <tr><td class="rank">3</td><td>Christian Scaroni</td><td>Italien</td><td>XDS Astana</td><td class="time">+3:34</td></tr>
+                    <tr><td class="rank">4</td><td>Andrea Raccagni Noviero</td><td>Italien</td><td>Soudal Quick-Step</td><td class="time">+3:39</td></tr>
+                    <tr><td class="rank">5</td><td>Johannes Kulset</td><td>Norwegen</td><td>Uno-X Mobility</td><td class="time">+5:17</td></tr>
+                    <tr><td class="rank">6</td><td>Giulio Ciccone</td><td>Italien</td><td>Lidl-Trek</td><td class="time">+6:12</td></tr>
+                    <tr><td class="rank">7</td><td>Jan Christen</td><td>Schweiz</td><td>UAE Team Emirates-XRG</td><td class="time">+6:16</td></tr>
+                    <tr><td class="rank">8</td><td>Florian Stork</td><td>Deutschland</td><td>Tudor Pro Cycling Team</td><td class="time">+6:16</td></tr>
+                    <tr><td class="rank">9</td><td>Egan Bernal</td><td>Kolumbien</td><td>Netcompany-Ineos</td><td class="time">+6:16</td></tr>
+                    <tr><td class="rank">10</td><td>Thymen Arensman</td><td>Niederlande</td><td>Netcompany-Ineos</td><td class="time">+6:18</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="section green">
+              <h2>Heute: Etappe 6, Paestum - Neapel</h2>
+              <p>Das Profil sieht zunächst nach Sprintertag aus, ist aber kein komplett stressfreier Übergangstag. Die Etappe führt über rund 141 bis 142 Kilometer von Paestum nach Norden, zunächst flach entlang der Küste. Nach etwa 40 Kilometern wartet mit Cava de' Tirreni ein Bergpreis der 4. Kategorie: 7,1 Kilometer mit moderaten 2,7 Prozent im Schnitt. Danach geht es über gut 100 Kilometer überwiegend flach weiter, nördlich am Vesuv vorbei und hinein nach Neapel.</p>
+              <p>Der entscheidende Teil kommt spät: In den letzten 19 Kilometern wird es urbaner, breiter und schneller, aber mit Kurven, Stadtmobiliar und Positionskampf. Auf den letzten drei Kilometern geht es wieder an die Küste; unter dem roten Lappen wechselt der Untergrund auf Steinplatten, die Straße steigt spürbar mit etwa 4 Prozent an. Zwei schnelle Rechtskurven und eine enge Wende rund 400 Meter vor dem Ziel machen das Finale eher zu einem Sprint für robuste, gut positionierte Fahrer als für einen perfekten klassischen Lead-out.</p>
+              <div class="profile-grid">
+                <div class="profile-item"><span>Länge</span><strong>141/142 km</strong></div>
+                <div class="profile-item"><span>Bergwertung</span><strong>Cava de' Tirreni, Kat. 4</strong></div>
+                <div class="profile-item"><span>Zwischensprint</span><strong>Brusciano, km 93,4</strong></div>
+                <div class="profile-item"><span>Finish</span><strong>Pflaster, leicht bergauf</strong></div>
+              </div>
+            </section>
+
+            <section class="section red">
+              <h2>Sonstiges</h2>
+              <p>Paul Magnier bleibt in der Punktewertung vorn, Diego Pablo Sevilla führt die Bergwertung, und Eulálio übernimmt zusätzlich auch die Nachwuchswertung. Kaden Groves hat den Giro nach den Folgen seines Sturzes auf Etappe 1 aufgegeben; außerdem ist nach der nasskalten Etappe 5 die Frage nach Krankheit und Regeneration im Feld größer als sonst. Für die Favoriten ist heute wahrscheinlich Kontrollmodus, morgen mit Blockhaus wird es ernst.</p>
+            </section>
+
+            <section class="watch">
+              <h2>Watch-Empfehlung</h2>
+              <p><strong>Heute:</strong> die komplette Etappe ist kein Muss, aber die letzten 8 bis 10 Kilometer sind sehenswert. Das Finale ist technisch genug, um Chaos zu produzieren. <strong>Morgen:</strong> Blockhaus ist Pflichtprogramm, weil dort erstmals wirklich sichtbar werden dürfte, wie stabil Eulálios Rosa und die Form der großen Favoriten sind.</p>
+            </section>
+
+            <section class="sources">
+              <strong>Quellen</strong>
+              <div class="source-links">
+                <a href="https://www.cyclingstage.com/giro-2026-results/stage-5-italy-results-2026/">Cyclingstage Etappe 5</a>
+                <a href="https://www.cyclingweekly.com/racing/who-is-leading-the-giro-d-italia-2026">Cycling Weekly Gesamtwertung</a>
+                <a href="https://www.cyclingnews.com/pro-cycling/racing/2026-giro-d-italia-stage-6-preview/">Cyclingnews Etappe 6 Preview</a>
+                <a href="https://www.giroditalia.it/en/tappe/stage-6-of-the-giro-ditalia-2026-paestum-napoli/">Offizielle Giro-Etappe 6</a>
+              </div>
+            </section>
+          </main>
+        </article>
+
+        <article class="briefing" data-day="13. Mai">
+          <header class="head">
+            <div class="topline">
+              <div class="kicker">Giro-Morgenbriefing · 13. Mai 2026 · 08:00</div>
+              <div class="pager" aria-label="Tagesnavigation">
+                <button type="button" data-dir="-1" aria-label="Vorheriges Briefing">‹</button>
+                <button type="button" data-dir="1" aria-label="Nächstes Briefing">›</button>
+              </div>
             </div>
-          </div>
+            <h1>Narváez gewinnt in Cosenza, Ciccone startet den Tag in Rosa.</h1>
+            <p class="intro">Archivansicht als Beispiel für das Zurückspringen auf den vorigen Briefing-Tag.</p>
+          </header>
 
-          <section class="section">
-            <h2>Was gestern passiert ist</h2>
-            <p>Etappe 5 von Praia a Mare nach Potenza war der bisher wildeste Giro-Tag: lang, nass, h&uuml;gelig und voller Fehlerquellen. Igor Arrieta gewann aus der Flucht, obwohl er im Finale st&uuml;rzte und sp&auml;ter kurz die falsche Linie nahm. Afonso Eul&aacute;lio verpasste den Etappensieg, &uuml;bernahm aber Rosa. Giulio Ciccone verlor nach nur einem Tag im Maglia Rosa deutlich Zeit.</p>
-          </section>
+          <main class="body">
+            <div class="cards">
+              <div class="card">
+                <span>Etappensieger gestern</span>
+                <strong>Jhonatan Narváez</strong>
+              </div>
+              <div class="card">
+                <span>Maglia Rosa</span>
+                <strong>Giulio Ciccone</strong>
+              </div>
+              <div class="card">
+                <span>Heute</span>
+                <strong>Praia a Mare - Potenza</strong>
+              </div>
+            </div>
 
-          <section class="section yellow">
-            <h2>Was das f&uuml;r die Gesamtwertung bedeutet</h2>
-            <p>Eul&aacute;lio ist jetzt nicht nur ein Zufalls-Leader aus einer kleinen Flucht, sondern erst einmal ein echter Faktor f&uuml;r die n&auml;chsten Tage. Laut Berichten liegen mehrere gro&szlig;e Favoriten nach Etappe 5 mehrere Minuten zur&uuml;ck. Das zwingt die GC-Teams vor Blockhaus zu einer Entscheidung: sofort Druck machen oder die Kontrolle noch etwas aufschieben.</p>
-          </section>
+            <section class="section">
+              <h2>Was gestern passiert ist</h2>
+              <p>Etappe 4 war die erste Etappe auf italienischem Boden. Jhonatan Narváez gewann in Cosenza im reduzierten Sprint vor Orluis Aular und Giulio Ciccone. Ciccone sammelte Bonussekunden und übernahm dadurch das Rosa Trikot, während der bisherige Leader Guillermo Thomas Silva den Kontakt verlor.</p>
+            </section>
 
-          <section class="section green">
-            <h2>Heute: Etappe 6 nach Neapel</h2>
-            <p>Paestum - Neapel ist nominell ein Sprintertag &uuml;ber rund 141/142 Kilometer. Der Kniff steckt im Finale: Im letzten Kilometer geht es auf Pflaster leicht bergauf, mit zwei schnellen Rechtskurven und einer engen Wende etwa 400 Meter vor dem Ziel. Das ist kein klassischer Autobahn-Sprint, sondern eher ein Positionskampf f&uuml;r robuste, punchige Sprinter.</p>
-          </section>
+            <section class="section yellow">
+              <h2>Gesamtwertung vor Etappe 5</h2>
+              <p>Ciccone ging mit einem kleinen Vorsprung in den Tag, Jan Christen lag nur wenige Sekunden dahinter. Die Abstände waren noch eng genug, dass eine große Flucht oder Bonussekunden sofort die Gesamtwertung hätten drehen können. Genau deshalb war Etappe 5 gefährlicher als ein normaler Mittelgebirgstag.</p>
+            </section>
 
-          <section class="section red">
-            <h2>Team- und Ausfallradar</h2>
-            <p>Alpecin-Premier Tech muss ohne Kaden Groves weiterfahren, der nach dem Sturz auf Etappe 1 nicht ausreichend erholt war. Dazu bleibt das Feld nach Regen, K&auml;lte und ersten Krankheitsmeldungen angespannt. F&uuml;r Sprintteams bedeutet das: weniger perfekte Z&uuml;ge, mehr Unruhe, mehr Chance f&uuml;r gut positionierte Au&szlig;enseiter.</p>
-          </section>
+            <section class="section green">
+              <h2>Heute: Etappe 5 nach Potenza</h2>
+              <p>Mit 203 Kilometern, Regenrisiko und der Montagna Grande di Viggiano als schwerster Prüfung war das ein klassischer Giro-Tag für Ausreißer, die nah genug in der Gesamtwertung liegen. Die Favoriten mussten entscheiden, ob sie das Rennen kontrollieren oder den Etappensieg und vielleicht sogar Rosa aus der Hand geben.</p>
+            </section>
 
-          <section class="watch">
-            <h2>Watch-Empfehlung</h2>
-            <p><strong>Heute:</strong> nicht die ganze Etappe Pflicht, aber die letzten 5 bis 8 Kilometer lohnen sich. <strong>Morgen:</strong> klar vormerken. Formia - Blockhaus ist mit 244 Kilometern und Bergankunft der erste richtige Gesamtwertungs-Test des Giro.</p>
-          </section>
+            <section class="watch">
+              <h2>Watch-Empfehlung</h2>
+              <p><strong>Heute:</strong> ab dem letzten schweren Anstieg einschalten. Die Etappe hat genug Länge, Wetter und Profil, um die erste echte Überraschung des Giro zu erzeugen.</p>
+            </section>
+          </main>
+        </article>
+      </div>
 
-          <section class="sources">
-            <strong>Quellen</strong>
-            Cyclingnews Etappe 6 Preview &middot; Offizielle Giro-Seite Etappe 6 &middot; Cyclingstage Etappe 5/6 &middot; Cyclingnews Kaden Groves Aufgabe
-          </section>
-        </main>
-      </article>
       <p class="footer">Radsport-Briefing · öffentliche Webversion</p>
     </div>
+
+    <script>
+      const briefings = Array.from(document.querySelectorAll(".briefing"));
+      let activeIndex = 0;
+
+      function showBriefing(index) {
+        activeIndex = Math.max(0, Math.min(index, briefings.length - 1));
+        briefings.forEach((briefing, currentIndex) => {
+          briefing.classList.toggle("active", currentIndex === activeIndex);
+        });
+        document.querySelectorAll("[data-dir='-1']").forEach((button) => {
+          button.disabled = activeIndex === briefings.length - 1;
+        });
+        document.querySelectorAll("[data-dir='1']").forEach((button) => {
+          button.disabled = activeIndex === 0;
+        });
+      }
+
+      document.querySelectorAll("[data-dir]").forEach((button) => {
+        button.addEventListener("click", () => {
+          showBriefing(activeIndex - Number(button.dataset.dir));
+        });
+      });
+
+      showBriefing(0);
+    </script>
   </body>
 </html>
