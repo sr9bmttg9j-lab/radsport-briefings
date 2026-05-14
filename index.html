@@ -264,6 +264,32 @@
         line-height: 1.55;
       }
 
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .story-card {
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .story-card h3 {
+        font-size: 15px;
+        line-height: 1.25;
+      }
+
+      .story-card p {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.48;
+      }
+
       .sources {
         margin-top: 24px;
         padding-top: 15px;
@@ -324,7 +350,8 @@
         }
 
         .cards,
-        .profile-grid {
+        .profile-grid,
+        .story-grid {
           grid-template-columns: 1fr;
         }
 
@@ -346,8 +373,8 @@
                 <button type="button" data-dir="1" aria-label="Nächstes Briefing">›</button>
               </div>
             </div>
-            <h1>Arrieta gewinnt den wildesten Giro-Tag, Eulálio fährt in Rosa.</h1>
-            <p class="intro">Stand morgens vor Etappe 6. Alles Wichtige zum Vortag, zur Gesamtwertung und zur heutigen Etappe auf einen Blick.</p>
+            <h1>Arrieta gewinnt ein komplett verrücktes Finale, Eulálio übernimmt Rosa.</h1>
+            <p class="intro">Das Morgenbriefing für den 14. Mai: erst der Vortag in verständlich, dann die Top 10 der Gesamtwertung, das heutige Profil und ein paar Geschichten aus dem Giro-Kosmos.</p>
           </header>
 
           <main class="body">
@@ -368,8 +395,9 @@
 
             <section class="section">
               <h2>Was gestern passiert ist</h2>
-              <p>Etappe 5 von Praia a Mare nach Potenza war der erste richtig unruhige Giro-Tag in Italien: Regen, eine große Flucht, mehrere Angriffe am Montagna Grande di Viggiano und ein Finale, das kaum sauberer hätte eskalieren können. Igor Arrieta und Afonso Eulálio setzten sich am härtesten Anstieg ab, stürzten später beide, und Arrieta nahm kurz vor Schluss sogar eine falsche Linie. Trotzdem kam er auf dem leicht ansteigenden Zielstrich wieder an Eulálio vorbei und gewann die Etappe.</p>
-              <p>Für Eulálio war es sportlich trotzdem ein Riesentag: Er verpasste zwar den Sieg, übernahm aber Rosa. Giulio Ciccone verlor das Maglia Rosa nach nur einem Tag, weil die Favoritengruppe mehr als sieben Minuten hinter der Spitzengruppe ins Ziel kam.</p>
+              <p>Etappe 5 von Praia a Mare nach Potenza war der erste Tag dieses Giro, an dem das Rennen aus dem üblichen Kontrollmuster herausgefallen ist. Regen, Kälte, eine große Flucht und der Montagna Grande di Viggiano machten aus dem Tag keinen reinen Ausreißer-Ausflug, sondern eine echte Verschiebung im Gesamtklassement.</p>
+              <p>Igor Arrieta und Afonso Eulálio waren am Ende die beiden stärksten Fahrer vorn. Erst stürzte Arrieta in einer Kurve, dann erwischte es Eulálio, später verpasste Arrieta sogar noch eine Abzweigung. Normalerweise ist das die Reihenfolge, in der man eine Etappe verliert. Arrieta kam trotzdem zurück, fing Eulálio auf den letzten Metern ab und gewann in Potenza.</p>
+              <p>Für Eulálio war es trotzdem der größte Tag seiner Karriere: kein Etappensieg, aber Rosa. Giulio Ciccone verlor das Maglia Rosa nach nur einem Tag, weil die Favoritengruppe mehr als sieben Minuten hinter der Spitzengruppe ins Ziel kam.</p>
             </section>
 
             <section class="section yellow">
@@ -402,10 +430,29 @@
               </div>
             </section>
 
+            <section class="section red">
+              <h2>Geschichten am Rand</h2>
+              <p>Neben Ergebnis und Zeitabständen hatte dieser Tag auch ein paar dieser kleinen Giro-Geschichten, die man in einer reinen Ergebnisliste verpassen würde.</p>
+              <div class="story-grid">
+                <article class="story-card">
+                  <h3>Arrieta und der Blick nach Hause</h3>
+                  <p>Igor Arrieta ist der Sohn von José Luis Arrieta, früher Helfer von Miguel Indurain. Spanische Medien machten daraus nach dem Sieg sofort eine Familiengeschichte: der Vater vor dem Fernseher, der Sohn im Chaos von Potenza, beide verbunden durch einen dieser seltenen Grand-Tour-Momente.</p>
+                </article>
+                <article class="story-card">
+                  <h3>Eine Wette mit Caruso</h3>
+                  <p>Eulálio erzählte nach der Etappe von einer laufenden Wette mit Damiano Caruso: Wenn er zwei Giro-Etappen gewinnt, soll Caruso noch ein Jahr dranhängen. Etappe 5 wurde es knapp nicht, aber Rosa macht die Geschichte für Bahrain fast noch größer.</p>
+                </article>
+                <article class="story-card">
+                  <h3>Der Giro riecht manchmal anders</h3>
+                  <p>Lotto-Intermarché kämpft weiter mit einer Krankheitswelle. Berichte führen sie auf ein Rennen in Belgien zurück, bei dem Regen und verschmutzte Straßen für Magenprobleme im Feld gesorgt haben sollen. Milan Menten und Arnaud De Lie mussten inzwischen raus.</p>
+                </article>
+              </div>
+            </section>
+
             <section class="section green">
               <h2>Heute: Etappe 6, Paestum - Neapel</h2>
-              <p>Das Profil sieht zunächst nach Sprintertag aus, ist aber kein komplett stressfreier Übergangstag. Die Etappe führt über rund 141 bis 142 Kilometer von Paestum nach Norden, zunächst flach entlang der Küste. Nach etwa 40 Kilometern wartet mit Cava de' Tirreni ein Bergpreis der 4. Kategorie: 7,1 Kilometer mit moderaten 2,7 Prozent im Schnitt. Danach geht es über gut 100 Kilometer überwiegend flach weiter, nördlich am Vesuv vorbei und hinein nach Neapel.</p>
-              <p>Der entscheidende Teil kommt spät: In den letzten 19 Kilometern wird es urbaner, breiter und schneller, aber mit Kurven, Stadtmobiliar und Positionskampf. Auf den letzten drei Kilometern geht es wieder an die Küste; unter dem roten Lappen wechselt der Untergrund auf Steinplatten, die Straße steigt spürbar mit etwa 4 Prozent an. Zwei schnelle Rechtskurven und eine enge Wende rund 400 Meter vor dem Ziel machen das Finale eher zu einem Sprint für robuste, gut positionierte Fahrer als für einen perfekten klassischen Lead-out.</p>
+              <p>Etappe 6 wirkt auf dem Papier wie der Tag zum Durchatmen: 141 bis 142 Kilometer, Start in Paestum, Ziel in Neapel, kein langer schwerer Berg. Genau deshalb darf man sie aber nicht zu früh als langweiligen Sprinttag abstempeln. Der erste Abschnitt führt flach an der Küste entlang, danach kommt bei Cava de' Tirreni ein Bergpreis der 4. Kategorie: 7,1 Kilometer mit 2,7 Prozent im Schnitt. Das ist kein GC-Anstieg, kann aber helfen, eine Flucht zu sortieren und reine Sprinterteams kurz arbeiten zu lassen.</p>
+              <p>Nach dem Berg wird das Rennen wieder flacher und führt nördlich am Vesuv vorbei Richtung Neapel. Der taktische Kern liegt im Finale: Die letzten 19 Kilometer sind urban, schnell und voller Positionskampf. Es gibt breite Straßen, aber auch Kurven und Stadtmöbel. Unter dem roten Lappen wechselt der Untergrund auf Steinplatten, die Straße steigt mit etwa 4 Prozent an, und etwa 400 Meter vor dem Ziel kommt noch eine enge Wende. Das schreit nach einem Sprint, bei dem nicht der nominell schnellste Fahrer gewinnt, sondern derjenige, der mit frischen Beinen an der richtigen Stelle durchkommt.</p>
               <div class="profile-grid">
                 <div class="profile-item"><span>Länge</span><strong>141/142 km</strong></div>
                 <div class="profile-item"><span>Bergwertung</span><strong>Cava de' Tirreni, Kat. 4</strong></div>
@@ -414,9 +461,9 @@
               </div>
             </section>
 
-            <section class="section red">
+            <section class="section">
               <h2>Sonstiges</h2>
-              <p>Paul Magnier bleibt in der Punktewertung vorn, Diego Pablo Sevilla führt die Bergwertung, und Eulálio übernimmt zusätzlich auch die Nachwuchswertung. Kaden Groves hat den Giro nach den Folgen seines Sturzes auf Etappe 1 aufgegeben; außerdem ist nach der nasskalten Etappe 5 die Frage nach Krankheit und Regeneration im Feld größer als sonst. Für die Favoriten ist heute wahrscheinlich Kontrollmodus, morgen mit Blockhaus wird es ernst.</p>
+              <p>Paul Magnier bleibt in der Punktewertung vorn, Diego Pablo Sevilla führt die Bergwertung, und Eulálio übernimmt zusätzlich auch die Nachwuchswertung. Kaden Groves hat den Giro nach den Folgen seines Sturzes auf Etappe 1 aufgegeben. Nach der nasskalten Etappe 5 zählt außerdem Regeneration: Viele Teams werden heute darauf hoffen, möglichst ohne Sturz, Krankheit oder Zeitverlust durch Neapel zu kommen.</p>
             </section>
 
             <section class="watch">
@@ -431,6 +478,8 @@
                 <a href="https://www.cyclingweekly.com/racing/who-is-leading-the-giro-d-italia-2026">Cycling Weekly Gesamtwertung</a>
                 <a href="https://www.cyclingnews.com/pro-cycling/racing/2026-giro-d-italia-stage-6-preview/">Cyclingnews Etappe 6 Preview</a>
                 <a href="https://www.giroditalia.it/en/tappe/stage-6-of-the-giro-ditalia-2026-paestum-napoli/">Offizielle Giro-Etappe 6</a>
+                <a href="https://www.idlprocycling.com/cycling/new-giro-leader-eulalio-on-betting-with-teammates-and-working-with-rivals">IDL zu Eulálio/Arrieta</a>
+                <a href="https://www.cyclingnews.com/pro-cycling/teams-riders/freak-illness-catches-up-with-arnaud-de-lie-and-forces-him-out-of-giro-d-italia/">Cyclingnews Krankheitswelle</a>
               </div>
             </section>
           </main>
